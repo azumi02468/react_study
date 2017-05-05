@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>React.js</title>
+<meta name="viewport" content="width=device-width">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/original.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.smoothscroll.js"></script>
+<script type="text/javascript" src="js/jquery.scrollshow.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script>
+$(function($){
+	$('html').smoothscroll({easing : 'swing', speed : 1000, margintop : 30, headerfix : $('nav')});
+	$('.totop').scrollshow({position : 500});
+});
+</script>
+<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+<h1>React.js学習サイト</h1>
+<p>
+このサイトは、React.jsについて学ぶサイトです。
+</p>
+</header>
+
+<nav>
+<ul>
+	<li><a href="index.html">TOP</a></li>
+	<li><a href="hello.html">Hello World</a></li>
+	<li><a href="timer.html">Timer</a></li>
+	<li><a href="word.html">Word</a></li>
+	<li><a href="reference.html">Reference</a></li>
+	<li><a href="link.html">Link</a></li>
+</ul>
+</nav>
+
+<div id="contents">
+	<h2>用語集</h2>
+	<dl class="information">
+	<dt>React.js</dt>
+	<dd>Facebook社が開発したUI作成フレームワーク。オープンソースである。</dd>
+	<dt>仮想DOM</dt>
+	<dd>Reactが処理中に使用するDOMのこと。この仮想DOMと実際のDOMを見比べて、変更点のみを反映させる。</dd>
+	<dt>JSX</dt>
+	<dd>JavascriptにXML風なシンタックスを用いることができる。XSS対策にもなる。</dd>
+	</dl>
+</div>
+
+<footer>
+	<div><small>Copyright &#169; 2017 Sites To Study React.js All Rights Reserved.</small></div>
+</footer>
+
+<div class="totop"><a href="#"><img src="images/totop.png" alt="ページのトップへ戻る"></a></div>
+</body>
+</html>

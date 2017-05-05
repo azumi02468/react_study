@@ -1,11 +1,94 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>React.js！</title>
-  </head>
-  <body>
-    このサイトはReact.jsについて勉強します。
-  </body>
-</html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>React.js</title>
+<meta name="viewport" content="width=device-width">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/original.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.smoothscroll.js"></script>
+<script type="text/javascript" src="js/jquery.scrollshow.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script>
+$(function($){
+	$('html').smoothscroll({easing : 'swing', speed : 1000, margintop : 30, headerfix : $('nav')});
+	$('.totop').scrollshow({position : 500});
+});
+</script>
+<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+<h1>React.js学習サイト</h1>
+<p>
+このサイトは、React.jsについて学ぶサイトです。
+</p>
+</header>
 
+<nav>
+<ul>
+	<li><a href="index.html">TOP</a></li>
+	<li><a href="hello.html">Hello World</a></li>
+	<li><a href="timer.html">Timer</a></li>
+	<li><a href="word.html">Word</a></li>
+	<li><a href="reference.html">Reference</a></li>
+	<li><a href="link.html">Link</a></li>
+</ul>
+</nav>
+
+<div id="contents">
+	<h2>React.jsについて</h2>
+	<p>
+	React.jsとは、Facebook社がWEBページのコンポーネントを作成するために開発したUIフレームワークです。
+	</p>
+	<h3>特徴</h3>
+	<ul>
+	<li>UI管理に特化</li>
+	<li>仮想DOMによる高速処理</li>
+	</ul>
+	<h4>UI管理に特化</h4>
+	<p>
+	Reactで作ったコンポーネントは、単純なJavascriptで書かれているため、
+	既存WEBアプリにそのまま配置することができます。
+	また、UIを変更するだけなので、ロジック部分は既存のまま、
+	UIの管理をしやすくすることができます。
+	これはWEBアプリをMVC構成で作るときに、View部分をReact.jsに任せることができることを意味しています。
+	</p>
+	<h4>仮想DOMによる高速処理</h4>
+	<p>
+	Reactで作られたコンポーネントは、実際のHTMLインスタンスであるDOMとして描画される前に、
+	仮想DOMとして描画されます。
+	Reactの処理の中で、仮想DOMを作成し、そこでできあがった仮想DOMと実際に今表示されているDOMを比較して、
+	変更分だけを実際のDOMに適用するというようなことをやっています。
+	したがって、変更分だけが適用されるので、より高速に描画を行うことができます。
+	</p>
+	<h3>補足１～JSX</h3>
+	<p>
+	Reactを使用するうえで、JSXというものが出てきます。
+	JSXとは、Javascript XMLの略で、Javascript内でXML風なシンタックスを記述するためのものです。
+	Reactを使う上で必須ではないのですが、こちらを使用する方が記述しやすいため、
+	このサイトでもJSXを使用します。
+	</p>
+	<p>
+	※詳細は、<a href="https://facebook.github.io/react/" target="_blanc">公式サイト</a>のA Simple Componentの箇所を読んでください。
+	</p>
+	<h3>補足２～Babel</h3>
+	<p>
+	Babelとは、最新のECMAScript標準仕様に則って、Javascriptを書くことができるコンパイラ(トランスパイラ)です。
+	このBabelがJSXをサポートしているため、本サイトでもBabelを使用しています。
+	</p>
+</div>
+
+<footer>
+	<div><small>Copyright &#169; 2017 Sites To Study React.js All Rights Reserved.</small></div>
+</footer>
+
+<div class="totop"><a href="#"><img src="images/totop.png" alt="ページのトップへ戻る"></a></div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>React.js</title>
+<meta name="viewport" content="width=device-width">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/original.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.smoothscroll.js"></script>
+<script type="text/javascript" src="js/jquery.scrollshow.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script>
+$(function($){
+	$('html').smoothscroll({easing : 'swing', speed : 1000, margintop : 30, headerfix : $('nav')});
+	$('.totop').scrollshow({position : 500});
+});
+</script>
+<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+<h1>React.js学習サイト</h1>
+<p>
+このサイトは、React.jsについて学ぶサイトです。
+</p>
+</header>
+
+<nav>
+<ul>
+	<li><a href="index.html">TOP</a></li>
+	<li><a href="hello.html">Hello World</a></li>
+	<li><a href="timer.html">Timer</a></li>
+	<li><a href="word.html">Word</a></li>
+	<li><a href="reference.html">Reference</a></li>
+	<li><a href="link.html">Link</a></li>
+</ul>
+</nav>
+
+<div id="contents">
+	<h2>書いてみる～Hello World</h2>
+	<p>
+	React.jsでHello Worldを書いてみましょう。
+	</p>
+	<h3>ハンズオン①</h3>
+	<h5>１．事前準備</h5>
+	<ul>
+	<li>モダンブラウザ(Chrome/IE11/Firefox)</li>
+	<li>テキストエディタ</li>
+	<li>以下のサイトにアクセスし、react.htmlを任意の場所にダウンロードしてください。</li>
+	<a href="https://github.com/azumi02468/react_study" target="_blank">学習のためのテンプレート</a>
+	</ul>
+	<h5>２．書いてみる</h5>
+	下記のコードをbodyのscript要素内に書いてください。
+	<pre class="viewer"><code>// React.jsでHello Worldを描画する
+ReactDOM.render(
+	&lt;div&gt;Hello World&lt;/div&gt,
+	document.getElementById('root')
+);
+</code></pre>
+	<h5>３．動かす</h5>
+	<p>
+	react.htmlをブラウザで開いてください。「Hello World」と表示されます。
+	</p>
+	<h3>解説①</h3>
+	<p>
+	それでは、react.htmlを見てください。<br>
+	まずheadをみると、以下の3つのファイルが読み込まれていると思います。
+<pre class="viewer"><code>&lt;script src="https://unpkg.com/react@latest/dist/react.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"&gt;&lt;/script&gt;
+</code></pre>
+	このうち、上2つはReactを使用するために必要なファイルです。どちらも必ず必要になります。<br>
+	3つ目のbabelですが、これを読み込むことによって、JSXを使用することができます。<br>
+	babelについて知りたい方は、TOPページの補足を読んでください。
+	また、babelを使用する場合、scriptタグにtype="text/babel"を忘れずに記述してください。
+	</p>
+	<p>
+	それでは次に本処理についてみてみましょう。<br>
+	ReactDOM.renderメソッドの第1引数にdiv要素、第2引数にrootのIDを持つ要素を取得して渡しています。<br>
+	実際に描画されたWEBページの要素をご覧ください。(F12を押せば開発者ツールから見れます。)<br>
+	それによると、rootのIDを持つdiv要素の子要素として、div要素が作られていることが分かります。<br>
+	したがって、ReactDOM.renderメソッドの第1引数には描画したい要素、第2引数には対象となる要素を指定してあげればよいことが分かります。
+	</p>
+	<h3>ハンズオン②</h3>
+	<h5>１．書いてみる</h5>
+	<p>
+	それでは、Worldという文字を任意の文字列に変更できるようにしましょう。
+	先ほどのreact.htmlの内容を以下のように変更してください。
+	<pre class="viewer"><code>// Helloタグを作成する
+function Hello(props) {
+	return &lt;div&gt;Hello {props.name}&lt;/div&gt;;
+}
+// React.jsでHello Worldを描画する
+// nameには任意の名前を渡してください。
+ReactDOM.render(
+	&lt;Hello name="[Your Name]"&gt;&lt;/Hello&gt;,
+	document.getElementById('root')
+);
+</code></pre>
+	</p>
+	<h5>２．動かす</h5>
+	<p>
+	react.htmlをブラウザで開いてください。「Hello [Your Name]」と表示されます。
+	<h3>解説②</h3>
+	<p>
+	最初にrenderメソッドから見てみましょう。第1引数にHelloタグというのができています。<br>
+	実はこの書き方がJSXを使用しています。XMLのように任意のタグを作成し、記述することができます。<br>
+	またname属性を追加していますが、これはどこに渡しているのでしょうか？<br>
+	それが、functionで定義されています。こちらもHTMLタグを記述しており、JSXの書き方になっています。<br>
+	タグ名がfunction名になり、属性のnameはpropsというオブジェクトに追加されています。
+	あとは、それらをHTMLの形にして返しているだけです。
+	このようにJSXを使用することで、XMLのように記述することができるのですが、ただ書きやすくなっただけではありません。
+	JSXではタグを最初に文字列として認識するため、最初にエスケープ処理が行われます。
+	したがって、クロスサイトスクリプティングを防ぐことができるのです。
+	<br>このように①見やすさ、②セキュリティの二つの面からJSXを使用するメリットがあります。
+	</p>
+	<h3>まとめ</h3>
+	<h5>React.jsを使用するためには</h5>
+	<ul>
+	<li>HTMLのheadでReact関連(react.js/react-dom.js/babelなど)のファイルを読み込む。</li>
+	<li>babelを使用する場合、script type="text/babel"と記述する。</li>
+	</ul>
+	<h5>React.jsの書き方</h5>
+	<ul>
+	<li>ReactDOM.renderメソッドでコンポーネントを描画する。<br>
+	このとき、第1引数には描画要素、第2引数には描画先対象の要素を指定する。
+	</li>
+	<li>任意の引数を描画対象の要素に渡すことができる。</li>
+	<li>JSXを使用すると、①XML風で見やすく、②XSSを防ぐことができる。</li>
+	</ul>
+</div>
+
+<footer>
+	<div><small>Copyright &#169; 2017 Sites To Study React.js All Rights Reserved.</small></div>
+</footer>
+
+<div class="totop"><a href="#"><img src="images/totop.png" alt="ページのトップへ戻る"></a></div>
+</body>
+</html>
